@@ -45,7 +45,7 @@ dishRouter.route('/')
 
 dishRouter.route('/:dishId')
 .get((req,res,next) => {
-    Dishes.findById(req.params.dishId)
+    Dishes.find({_id : req.params.dishId})
     .populate('comments.author')
     .then((dish) => {
         res.statusCode = 200;
